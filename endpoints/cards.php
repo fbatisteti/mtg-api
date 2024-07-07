@@ -130,7 +130,7 @@ else {
                 }
             }
             else {
-                $return = "Invalid method for API call /card/list. Expecting POST, received " . $method;
+                $return = "Invalid method for API call /card/list. Expecting GET, received " . $method;
             }
 
             break;
@@ -449,7 +449,7 @@ else {
                 }
             }
             else {
-                $return = "Invalid method for API call /set/update. Expecting PUT, received " . $method;
+                $return = "Invalid method for API call /set/update. Expecting DELETE, received " . $method;
             }
             break;
 
