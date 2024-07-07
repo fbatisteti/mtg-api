@@ -1,0 +1,34 @@
+CREATE DATABASE mtg_api;
+USE mtg_api;
+
+CREATE TABLE `user` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `username` VARCHAR(50) NOT NULL,
+    `password` VARCHAR(50) NOT NULL,
+    `token` VARCHAR(32) NOT NULL,
+    `expires` DATE NULL
+);
+
+CREATE TABLE `sets` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `release_date` DATE NULL,
+    `size` INT NULL,
+    `other_names` TEXT NULL
+);
+
+CREATE TABLE `cards` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `color` VARCHAR(10) NULL,
+    `type` VARCHAR(100) NULL,
+    `rarity` CHAR(1) NULL,
+    `set_id` INT NOT NULL,
+    `artist` VARCHAR(200) NULL,
+    `image_url` VARCHAR(1000) NULL,
+    `description` VARCHAR(1000) NULL,
+    `price` FLOAT NULL,
+    `stock` INT NULL,
+    `other_names` TEXT NULL,
+    FOREIGN KEY (`set_id`) REFERENCES `sets`(`id`)
+);
